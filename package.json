@@ -1,0 +1,41 @@
+{
+  "name": "torbot",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "npm run serve",
+    "start:ts-node": "ts-node src/bot.ts",
+    "build": "npm run build-ts && npm run tslint",
+    "serve": "NODE_ENV=production node dist/bot.js",
+    "watch-node": "nodemon dist/bot.js",
+    "watch": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"cyan.bold,green.bold\"  \"npm run watch-ts\" \"npm run watch-node\"",
+    "build-ts": "tsc",
+    "watch-ts": "tsc -w",
+    "tslint": "tslint -c tslint.json -p tsconfig.json",
+    "debug": "npm run build && npm run watch-debug",
+    "serve-debug": "nodemon --inspect dist/bot.js",
+    "watch-debug": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"cyan.bold,green.bold\" \"npm run watch-ts\" \"npm run serve-debug\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/revan730/torbot.git"
+  },
+  "author": "revan730",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/revan730/torbot/issues"
+  },
+  "homepage": "https://github.com/revan730/torbot#readme",
+  "dependencies": {
+    "aws-sdk": "^2.1049.0",
+    "telegraf": "^3.38.0",
+    "telegraf-i18n": "^6.6.0",
+    "winston": "^3.3.3"
+  },
+  "devDependencies": {
+    "@types/mongoose": "^5.7.31",
+    "ts-node": "^8.10.2",
+    "tslint": "^6.1.2",
+    "typescript": "^3.9.6"
+  }
+}

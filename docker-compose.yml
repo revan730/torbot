@@ -1,0 +1,12 @@
+# Use root/example as user/password credentials
+version: '3.1'
+
+services:
+  torbot:
+    image: dr.revan.pp.ua/revan730/torbot:latest
+    restart: always
+    environment:
+      TELEGRAM_TOKEN: CHANGEME
+      AWS_ACCESS_KEY_ID: CHANGEME
+      AWS_SECRET_KEY_ID: CHANGEME
+      ADMIN_IDS: 386766658
